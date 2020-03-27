@@ -23,7 +23,11 @@ public class DuplicateRemover {
 				uniqueWords.add(next.toLowerCase());
 			}
 		} catch (IOException e) {
-			System.err.print("There was an issue with the file opening");
+			System.err.println("There was an issue with the file opening");
+			e.printStackTrace();
+			System.exit(0);
+		} catch (Exception e) {
+			System.err.println("There was an unexpected exception, " + e.getClass());
 			e.printStackTrace();
 			System.exit(0);
 		}
@@ -36,11 +40,15 @@ public class DuplicateRemover {
 				output.format("%s ", s);
 			}
 		} catch (FileNotFoundException e) {
-			System.err.print("The file was not found/not able top be created");
+			System.err.println("The file was not found/not able top be created");
 			e.printStackTrace();
 			System.exit(0);
 		} catch (FormatterClosedException e ) {
 			System.err.print("The Formatter was closed at some point during execution");
+			e.printStackTrace();
+			System.exit(0);
+		} catch (Exception e) {
+			System.err.println("There was an unexpected exception, " + e.getClass());
 			e.printStackTrace();
 			System.exit(0);
 		}

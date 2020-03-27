@@ -23,7 +23,11 @@ public class DuplicateCounter {
 				} else wordCounter.put(next, 1);
 			}
 		} catch (IOException e) {
-			System.err.print("There was an issue with the file opening");
+			System.err.println("There was an issue with the file opening");
+			e.printStackTrace();
+			System.exit(0);
+		} catch (Exception e) {
+			System.err.println("There was an unexpected exception, " + e.getClass());
 			e.printStackTrace();
 			System.exit(0);
 		}	
@@ -37,11 +41,15 @@ public class DuplicateCounter {
 				output.format("%-10s%10d%n", s, wordCounter.get(s));
 			}
 		} catch (FileNotFoundException e) {
-			System.err.print("There was an issue opening/creating the file");
+			System.err.println("There was an issue opening/creating the file");
 			e.printStackTrace();
 			System.exit(0);
 		} catch (FormatterClosedException e) {
-			System.err.print("The formatter unexpectedly closed");
+			System.err.println("The formatter unexpectedly closed");
+			e.printStackTrace();
+			System.exit(0);
+		} catch (Exception e) {
+			System.err.println("There was an unexpected exception, " + e.getClass());
 			e.printStackTrace();
 			System.exit(0);
 		}
