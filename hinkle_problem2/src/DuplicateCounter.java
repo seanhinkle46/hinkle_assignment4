@@ -36,9 +36,9 @@ public class DuplicateCounter {
 	public void write(String outputFile) {
 		try (Formatter output = new Formatter(outputFile)) {
 			Set<String> words = wordCounter.keySet();
-			output.format("Key\t\tCount%n%n");
+			output.format("%-15s%15s%n%n", "Key", "Count");
 			for (String s : words) {
-				output.format("%-10s%10d%n", s, wordCounter.get(s));
+				output.format("%-15s%15d%n", s, wordCounter.get(s));
 			}
 		} catch (FileNotFoundException e) {
 			System.err.println("There was an issue opening/creating the file");
