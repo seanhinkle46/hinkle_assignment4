@@ -44,7 +44,7 @@ public class DuplicateRemover {
 			e.printStackTrace();
 			System.exit(0);
 		} catch (FormatterClosedException e ) {
-			System.err.print("The Formatter was closed at some point during execution");
+			System.err.println("The Formatter was closed at some point during execution");
 			e.printStackTrace();
 			System.exit(0);
 		} catch (Exception e) {
