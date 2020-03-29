@@ -15,11 +15,13 @@ public class DuplicateRemover {
 	Set<String> uniqueWords = new HashSet<String>();
 	
 	public void remove(String dataFile) {
+		//Creates Scanner and opens file in try with resources block
 		try(Scanner input = new Scanner(Paths.get(dataFile))) {
 			while(input.hasNext()) {
 				//Scans in the next string, adds it to the set as a lower case
 				//So that the set checks if there are duplicates, including differences in capitalization
 				String next = input.next();
+				//toLowerCase ensures case does not matter when finding repeat words
 				uniqueWords.add(next.toLowerCase());
 			}
 		} catch (IOException e) {
@@ -35,6 +37,7 @@ public class DuplicateRemover {
 	
 	
 	public void write(String outputFile) {
+		//Creates formatter and opens txt file in try with resources block
 		try(Formatter output = new Formatter("unique_words.txt")) {
 			for(String s : uniqueWords) {
 				output.format("%s ", s);

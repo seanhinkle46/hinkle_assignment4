@@ -14,10 +14,14 @@ public class DuplicateCounter {
 	
 	public void count(String dataFile) {
 		//some structure and map use inspired by figure 16.17 in textbook
+		
+		//initiate scanner and open file in the try with resources block
 		try(Scanner input = new Scanner(Paths.get(dataFile))) {
 			while (input.hasNext()) {
+				//gets next string from file, turns it lower case so we do not consider case
 				String next = input.next().toLowerCase();
 				if (wordCounter.containsKey(next)) {
+					//if word is already present, increases the count by 1 for that word
 					int current = wordCounter.get(next);
 					wordCounter.put(next, current + 1);
 				} else wordCounter.put(next, 1);
@@ -34,7 +38,9 @@ public class DuplicateCounter {
 	}
 	
 	public void write(String outputFile) {
+		//creates formatter and opens file in try with resources block
 		try (Formatter output = new Formatter(outputFile)) {
+			//keySet returns the keys (words) from the map as a Set
 			Set<String> words = wordCounter.keySet();
 			output.format("%-15s%15s%n%n", "Key", "Count");
 			for (String s : words) {
