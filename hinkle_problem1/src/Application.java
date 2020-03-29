@@ -1,4 +1,4 @@
-
+//Sean Hinkle, Dr. Hollander, COP3330
 public class Application {
 	public static void main(String[] args) {
 		DuplicateRemover duplicateRemover = new DuplicateRemover();

@@ -1,3 +1,4 @@
+//Sean Hinkle, Dr. Hollander, COP3330
 import java.util.Scanner;
 import java.io.IOException;
 import java.nio.file.Paths;
